@@ -6,10 +6,13 @@ RULESBUTTON.addEventListener('click', () => {
 });
 
 const CLOSEPOPUP = (event) => {
-    const CLOSE = RULESPOPUP.querySelector('.rules_popup div button');
+    const CLOSE = RULESPOPUP.querySelector('.rules_popup-screen div button');
 
-    if (event.target === RULESPOPUP || CLOSE) {
+    if (event.target === CLOSE) {
+        RULESPOPUP.classList.add('disactive')
+    } else if (event.target.contains(RULESPOPUP)) {
         RULESPOPUP.classList.add('disactive')
     }
 };
 
+RULESPOPUP.addEventListener('click', CLOSEPOPUP);

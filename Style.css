@@ -93,6 +93,9 @@ button {
     border-radius: 50%;
     height: 100px;
     width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .paper {
@@ -117,6 +120,61 @@ button {
     transform: translateX(-50%);
 }
 
+/* -----------battleboard------------ */
+
+.battleBoard {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+    justify-content: space-around;
+    margin: auto;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.battleBoard span {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.box {
+    align-items: center;
+    display: flex;
+    height: 70%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.battleBoard .border {
+    position: relative;
+    scale: 1.2;
+}
+
+.scissors-battle {
+    background: radial-gradient(at bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 1px 5px 0px 1px hsl(39, 77%, 42%);
+}
+
+.paper-battle {
+    background: radial-gradient(at bottom, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: 1px 5px 0px 1px hsl(229, 94%, 59%);
+}
+
+.rock-battle {
+    background: radial-gradient(at bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 1px 5px 0px 1px hsl(349, 78%, 47%);
+}
+
+.hause-picked {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    height: 125px;
+    width: 125px;
+}
+
+/* rules */
+
 .rules {
     bottom: 50px;
     position: absolute;
@@ -133,7 +191,7 @@ button {
 }
 
 .rules_popup {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     height: 100vh;
     top: 0;
     left: 0;
@@ -169,6 +227,11 @@ button {
 .rules_popup div button {
     background: none;
     border: none;
+}
+
+.rules_popup div button img {
+    position: relative;
+    z-index: -1;
 }
 
 .disactive {

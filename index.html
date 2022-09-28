@@ -29,11 +29,55 @@
     </div>
   </header>
 
-  <div class="gameBoard">
-    <div class="border scissors"><button class="options"><img src="/images/icon-scissors.svg" alt="scissors"></button>
+  <div class="gameBoard disactive">
+    <div class="border scissors">
+      <button class="options"><img src="/images/icon-scissors.svg" alt="scissors"></button>
     </div>
     <div class="border rock"><button class="options"><img src="/images/icon-rock.svg" alt="rock"></button></div>
     <div class="border paper"><button class="options"><img src="/images/icon-paper.svg" alt="paper"></button></div>
+  </div>
+
+  <div class="battleBoard">
+
+    <div class="box">
+      <span>YOU PICKED</span>
+      <div class="border scissors-battle ">
+        <div class="options">
+          <img src="/images/icon-scissors.svg" alt="scissors"></div>
+      </div>
+      <div class="border paper-battle disactive">
+        <div class="options">
+          <img src="/images/icon-paper.svg" alt="paper"></div>
+      </div>
+      <div class="border rock-battle disactive">
+        <div class="options">
+          <img src="/images/icon-rock.svg" alt="rock"></div>
+      </div>
+    </div>
+
+    <div>
+      <span>YOU WIN</span>
+      <span>YOU LOSE</span>
+      <button>PLAY AGAIN</button>
+    </div>
+
+    <div class="box">
+      <span>THE HAUSE PICKED</span>
+      <div class="hause-picked">
+        <div class="border scissors-battle disactive">
+          <div class="options">
+            <img src="/images/icon-scissors.svg" alt="scissors"></div>
+        </div>
+        <div class="border rock-battle disactive">
+          <div class="options">
+            <img src="/images/icon-rock.svg" alt="rock"></div>
+        </div>
+        <div class="border paper-battle disactive">
+          <div class="options">
+            <img src="/images/icon-paper.svg" alt="paper"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="rules">
@@ -46,13 +90,12 @@
     <div class="rules_popup-screen">
       <div>
         <span>RULES</span>
-        <button><img src="/images/icon-close.svg" alt="rules-exit" aria-hidden="true"></button>
+        <button><img src="/images/icon-close.svg" alt="rules-exit"></button>
       </div>
       <img src="/images/image-rules.svg" alt="rules">
     </div>
 
-  </div>
-  <!-- <div class="attribution">
+    <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
