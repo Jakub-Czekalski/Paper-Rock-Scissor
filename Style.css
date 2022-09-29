@@ -138,6 +138,28 @@ button {
     font-size: 18px;
 }
 
+.result {
+    display: flex;
+    flex-direction: column;
+}
+
+.result span {
+    font-size: 36px;
+    padding-bottom: 12px;
+}
+
+.result button {
+    border: none;
+    border-radius: 5px;
+    color: var(--score-text);
+    padding: 5px 0;
+    width: 100%;
+}
+
+.result button:hover {
+    color: hsl(349, 71%, 52%);
+}
+
 .box {
     align-items: center;
     display: flex;
