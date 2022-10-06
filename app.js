@@ -24,7 +24,9 @@ const BATTLE = document.querySelector('.battleBoard')
 GAME.addEventListener('click', (event) => {
     if (!event.target.closest('button')) return
     const OPTION = event.target.closest('button')
-    const {type} = OPTION.dataset
+    const {
+        type
+    } = OPTION.dataset
 
     if (OPTION) {
         GAME.classList.add('disactive');
@@ -35,15 +37,94 @@ GAME.addEventListener('click', (event) => {
     const ROCK = BATTLE.querySelector('.rock-battle');
     const PAPER = BATTLE.querySelector('.paper-battle');
 
-    if (type === 'scissors'){
-        SCISSORS.classList.remove('disactive')
+    if (type === 'scissors') {
+        SCISSORS.classList.remove('disactive');
+        BATTLE.dataset.yourPick = type;
     };
 
-    if (type === 'rock'){
-        ROCK.classList.remove('disactive')
+    if (type === 'rock') {
+        ROCK.classList.remove('disactive');
+        BATTLE.dataset.yourPick = type;
     };
 
-    if (type === 'paper'){
-        PAPER.classList.remove('disactive')
+    if (type === 'paper') {
+        PAPER.classList.remove('disactive');
+        BATTLE.dataset.yourPick = type;
     };
+
+
+    const HOUSEPICK = BATTLE.querySelector('.hause-picked');
+    const housePickScissors = HOUSEPICK.querySelector('.scissors-battle');
+    const housePickRock = HOUSEPICK.querySelector('.rock-battle');
+    const housePickPaper = HOUSEPICK.querySelector('.paper-battle');
+
+    const myArray = [
+        'rock',
+        'paper',
+        'scissors'
+    ];
+
+    let randomItem = myArray[Math.floor(Math.random() * myArray.length)];
+
+    if (randomItem === 'rock') {
+        housePickRock.classList.remove('disactive');
+        BATTLE.dataset.hausePick = 'rock';
+    };
+    if (randomItem === 'scissors') {
+        housePickScissors.classList.remove('disactive');
+        BATTLE.dataset.hausePick = 'scissors';
+    };
+    if (randomItem === 'paper') {
+        housePickPaper.classList.remove('disactive');
+        BATTLE.dataset.hausePick = 'paper';
+    };
+
+    const {
+        yourPick
+    } = BATTLE.dataset;
+    const {
+        hausePick
+    } = BATTLE.dataset;
+    const result = BATTLE.querySelector('.result');
+    const win = result.querySelector('.win');
+    const lose = result.querySelector('.lose');
+    const draw = result.querySelector('.draw');
+    const showResult = result.classList.remove('disactive');
+
+
+    const fight = () => {
+        if (yourPick === 'rock') {
+            showResult
+            if (hausePick === 'scissors') {
+                win.classList.remove('disactive')
+            } else if (hausePick === 'paper') {
+                lose.classList.remove('disactive');
+            }
+        };
+
+        if (yourPick === 'paper') {
+            showResult
+            if (hausePick === 'rock') {
+                win.classList.remove('disactive')
+            } else if (hausePick === 'scissors') {
+                lose.classList.remove('disactive');
+            }
+        };
+
+        if (yourPick === 'scissors') {
+            showResult
+            if (hausePick === 'rock') {
+                win.classList.remove('disactive')
+            } else if (hausePick === 'paper') {
+                lose.classList.remove('disactive');
+            }
+        };
+
+        if (yourPick === hausePick) {
+            showResult
+            draw.classList.remove('disactive');
+        };
+    };
+    fight();
+
 });
