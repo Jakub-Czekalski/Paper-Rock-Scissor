@@ -1,20 +1,24 @@
-const RULESBUTTON = document.querySelector('.rules button');
-const RULESPOPUP = document.querySelector('.rules_popup');
+const playerWinsLSKey = 'playersWins';
+const AIWinsLSKey = 'AIWins';
 
-RULESBUTTON.addEventListener('click', () => {
-    RULESPOPUP.classList.remove('disactive');
-});
+let state = {
+    playerWins: Number(localStorage.getItem(playerWinsLSKey)) || 0,
+    AIWins: Number(localStorage.getItem(AIWinsLSKey)) || 0,
+};
+
+const renderScore = () => {
+    const pointsElement = document.querySelector('.points');
+
+    pointsElement.innerText = state.playerWins - state.AIWins;
+};
+
+const init = () => {
+    renderScore();
+};
+
+init();
 
 
-RULESPOPUP.addEventListener('click', (event) => {
-    const CLOSE = RULESPOPUP.querySelector('.rules_popup-screen div button');
-
-    if (event.target === CLOSE) {
-        RULESPOPUP.classList.add('disactive')
-    } else if (event.target.contains(RULESPOPUP)) {
-        RULESPOPUP.classList.add('disactive')
-    }
-});
 
 // Choose option
 
@@ -90,15 +94,31 @@ GAME.addEventListener('click', (event) => {
     const lose = result.querySelector('.lose');
     const draw = result.querySelector('.draw');
     const showResult = result.classList.remove('disactive');
+    const winner = () => {
+        localStorage.setItem(playerWinsLSKey, state.playerWins + 1);
+        state = {
+            ...state,
+            playerWins: state.playerWins + 1,
+        };
+    };
+    const loser = () => {
+        localStorage.setItem(AIWinsLSKey, state.AIWins + 1);
+        state = {
+            ...state,
+            AIWins: state.AIWins + 1,
+        };
+    };
 
 
     const fight = () => {
         if (yourPick === 'rock') {
             showResult
             if (hausePick === 'scissors') {
-                win.classList.remove('disactive')
+                win.classList.remove('disactive');
+                winner();
             } else if (hausePick === 'paper') {
                 lose.classList.remove('disactive');
+                loser();
             }
         };
 
@@ -106,8 +126,10 @@ GAME.addEventListener('click', (event) => {
             showResult
             if (hausePick === 'rock') {
                 win.classList.remove('disactive')
+                winner();
             } else if (hausePick === 'scissors') {
                 lose.classList.remove('disactive');
+                loser();
             }
         };
 
@@ -115,8 +137,10 @@ GAME.addEventListener('click', (event) => {
             showResult
             if (hausePick === 'rock') {
                 win.classList.remove('disactive')
+                winner();
             } else if (hausePick === 'paper') {
                 lose.classList.remove('disactive');
+                loser();
             }
         };
 
@@ -124,7 +148,35 @@ GAME.addEventListener('click', (event) => {
             showResult
             draw.classList.remove('disactive');
         };
+
+        renderScore();
     };
     fight();
 
+    const restartGame = () => {
+        const playAgain = BATTLE.querySelector('.result button');
+
+        playAgain.addEventListener('click', () => {
+            
+        });
+    };
+});
+
+// Rules Button
+const RULESBUTTON = document.querySelector('.rules button');
+const RULESPOPUP = document.querySelector('.rules_popup');
+
+RULESBUTTON.addEventListener('click', () => {
+    RULESPOPUP.classList.remove('disactive');
+});
+
+
+RULESPOPUP.addEventListener('click', (event) => {
+    const CLOSE = RULESPOPUP.querySelector('.rules_popup-screen div button');
+
+    if (event.target === CLOSE) {
+        RULESPOPUP.classList.add('disactive')
+    } else if (event.target.contains(RULESPOPUP)) {
+        RULESPOPUP.classList.add('disactive')
+    }
 });
