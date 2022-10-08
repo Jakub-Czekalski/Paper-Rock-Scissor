@@ -157,9 +157,19 @@ GAME.addEventListener('click', (event) => {
         const playAgain = BATTLE.querySelector('.result button');
 
         playAgain.addEventListener('click', () => {
-            
+            BATTLE.querySelectorAll('div.border').forEach((div) => {
+                div.classList.add('disactive');
+            });
+            BATTLE.querySelectorAll('.result span').forEach((span) => {
+                span.classList.add('disactive');
+            });
+            BATTLE.classList.add('disactive');
+            result.classList.add('disactive');
+            GAME.classList.remove('disactive');
         });
     };
+
+    restartGame();
 });
 
 // Rules Button

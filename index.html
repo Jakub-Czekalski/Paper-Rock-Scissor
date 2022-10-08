@@ -17,81 +17,84 @@
 </head>
 
 <body>
-  <header>
-    <h1>
-      <span>ROCK</span>
-      <span>PAPER</span>
-      <span>SCISSORS</span>
-    </h1>
-    <div class="score-box">
-      <h2>SCORE</h2>
-      <span class="points">0</span>
-    </div>
-  </header>
-
-  <div class="gameBoard ">
-    <div class="border scissors">
-      <button class="options" data-type="scissors">
-        <img src="/images/icon-scissors.svg" alt="scissors">
-      </button>
-    </div>
-    <div class="border rock">
-      <button class="options" data-type="rock">
-        <img src="/images/icon-rock.svg" alt="rock">
-      </button>
-    </div>
-    <div class="border paper">
-      <button class="options" data-type="paper">
-        <img src="/images/icon-paper.svg" alt="paper">
-      </button>
-    </div>
-  </div>
-
-  <div class="battleBoard disactive">
-    <div class="box">
-
-      <span>YOU PICKED</span>
-
-      <div class="border scissors-battle disactive" data-type="scissors">
-        <div class="options">
-          <img src="/images/icon-scissors.svg" alt="scissors"></div>
+  <div class="main_container">
+    <header>
+      <h1>
+        <span>ROCK</span>
+        <span>PAPER</span>
+        <span>SCISSORS</span>
+      </h1>
+      <div class="score-box">
+        <h2>SCORE</h2>
+        <span class="points">0</span>
       </div>
-      <div class="border paper-battle disactive" data-type="paper">
-        <div class="options">
-          <img src="/images/icon-paper.svg" alt="paper"></div>
-      </div>
-      <div class="border rock-battle disactive" data-type="rock">
-        <div class="options">
-          <img src="/images/icon-rock.svg" alt="rock"></div>
-      </div>
+    </header>
 
+    <div class="gameBoard ">
+      <div class="border scissors">
+        <button class="options" data-type="scissors">
+          <img src="/images/icon-scissors.svg" alt="scissors">
+        </button>
+      </div>
+      <div class="border rock">
+        <button class="options" data-type="rock">
+          <img src="/images/icon-rock.svg" alt="rock">
+        </button>
+      </div>
+      <div class="border paper">
+        <button class="options" data-type="paper">
+          <img src="/images/icon-paper.svg" alt="paper">
+        </button>
+      </div>
     </div>
 
-    <div class="result disactive">
-      <span class="disactive win">YOU WIN</span>
-      <span class="disactive lose">YOU LOSE</span>
-      <span class="disactive draw">DRAW</span>
-      <button>PLAY AGAIN</button>
-    </div>
+    <div class="battleBoard disactive">
+      <div class="box_one">
 
-    <div class="box">
-      <span>THE HAUSE PICKED</span>
-      <div class="hause-picked">
-        <div class="border scissors-battle disactive">
+        <span>YOU PICKED</span>
+
+        <div class="border scissors-battle disactive" data-type="scissors">
           <div class="options">
             <img src="/images/icon-scissors.svg" alt="scissors"></div>
         </div>
-        <div class="border rock-battle disactive">
+        <div class="border paper-battle disactive" data-type="paper">
+          <div class="options">
+            <img src="/images/icon-paper.svg" alt="paper"></div>
+        </div>
+        <div class="border rock-battle disactive" data-type="rock">
           <div class="options">
             <img src="/images/icon-rock.svg" alt="rock"></div>
         </div>
-        <div class="border paper-battle disactive">
-          <div class="options">
-            <img src="/images/icon-paper.svg" alt="paper"></div>
+
+      </div>
+
+      <div class="result disactive">
+        <span class="disactive win">YOU WIN</span>
+        <span class="disactive lose">YOU LOSE</span>
+        <span class="disactive draw">DRAW</span>
+        <button>PLAY AGAIN</button>
+      </div>
+
+      <div class="box_two">
+        <span>THE HAUSE PICKED</span>
+        <div class="hause-picked">
+          <div class="border scissors-battle disactive">
+            <div class="options">
+              <img src="/images/icon-scissors.svg" alt="scissors"></div>
+          </div>
+          <div class="border rock-battle disactive">
+            <div class="options">
+              <img src="/images/icon-rock.svg" alt="rock"></div>
+          </div>
+          <div class="border paper-battle disactive">
+            <div class="options">
+              <img src="/images/icon-paper.svg" alt="paper"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <div class="rules">
     <button>
