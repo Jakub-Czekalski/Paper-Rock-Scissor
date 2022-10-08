@@ -143,8 +143,9 @@ button {
     height: 600px;
     justify-content: space-between;
     margin: auto;
-    max-width: 700px;
+    max-width: 900px;
     min-width: 280px;
+    min-height: 400px;
 }
 
 .battleBoard span {
@@ -176,25 +177,34 @@ button {
 
 .box_one,
 .box_two {
-    aspect-ratio: 1/1;
+    align-items: center;
     display: flex;
     height: 70%;
-    width: 40%;
-    min-width: 100px;
+    width: 35%;
+    min-width: 140px;
     flex-direction: column;
     justify-content: center;
 }
 
+.hause-picked {
+    aspect-ratio: 1/1;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 70%;
+}
+
 .battleBoard .border {
-    height: 100%;
-    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+    margin: 40px;
     position: relative;
-    margin: 24px auto;
+    transform: scale(1.4);
 }
 
 .scissors-battle {
     background: radial-gradient(at bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     box-shadow: 1px 5px 0px 1px hsl(39, 77%, 42%);
+
 }
 
 .paper-battle {
@@ -207,11 +217,7 @@ button {
     box-shadow: 1px 5px 0px 1px hsl(349, 78%, 47%);
 }
 
-.hause-picked {
-    background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 50%;
-    height: 70%;
-}
+
 
 /* rules */
 
@@ -291,14 +297,6 @@ button {
         font-size: 16px;
     }
 
-    .box_one .border {
-        transform: scale(0.8);
-    }
-
-    .hause-picked {
-        transform: scale(0.7);
-    }
-
     .result {
         order: 1;
     }
@@ -314,7 +312,10 @@ button {
         order: 1;
     }
 
-    .box_one, .box_two {
+
+    .box_one,
+    .box_two {
+        flex-direction: column-reverse;
         width: 50%;
     }
 
