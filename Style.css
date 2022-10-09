@@ -12,12 +12,11 @@
 }
 
 body {
-    background: radial-gradient(at top, hsl(214, 48%, 27%), hsl(238, 60%, 20%));
+    background: radial-gradient(at top, hsl(214, 48%, 27%), hsl(238, 60%, 20%)) no-repeat fixed;
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    min-height: 700px;
     min-width: 280px;
     padding: 24px 12px;
 }
@@ -140,7 +139,7 @@ button {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    height: 600px;
+    height: 500px;
     justify-content: space-between;
     margin: auto;
     max-width: 900px;
@@ -163,11 +162,17 @@ button {
     padding-bottom: 12px;
 }
 
+.draw {
+    text-align: center;
+    width: 130px;
+}
+
 .result button {
     border: none;
     border-radius: 5px;
     color: var(--score-text);
-    padding: 5px 0;
+    font-size: 18px;
+    padding: 6px 0;
     width: 100%;
 }
 
@@ -184,6 +189,7 @@ button {
     min-width: 140px;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 .hause-picked {
@@ -197,6 +203,8 @@ button {
     aspect-ratio: 1/1;
     height: auto;
     margin: 40px;
+    min-height: 125px;
+    min-width: 125px;
     position: relative;
     transform: scale(1.4);
 }
@@ -222,11 +230,15 @@ button {
 /* rules */
 
 .rules {
+    align-items: flex-end;
     display: flex;
     justify-content: flex-end;
-    margin: 50px auto;
-    width: 600px;
+    margin: 70px auto 0 auto;
+    max-height: 50px;
+    max-width: 1200px;
     min-width: 280px;
+    width: 100vw;
+    padding: 0 48px;
 }
 
 .rules button {
@@ -240,13 +252,13 @@ button {
 }
 
 .rules_popup {
-    background-color: rgba(0, 0, 0, 0.4);
-    height: 100vh;
+    background: no-repeat;
+    background-color: rgba(0, 0, 0, 0.4) ;
+    height: 100%;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     width: 100vw;
-
 }
 
 .rules_popup-screen {
@@ -283,6 +295,7 @@ button {
     z-index: -1;
 }
 
+
 .disactive {
     display: none;
 }
@@ -290,37 +303,122 @@ button {
 @media (max-width: 280px) {
     body {
         padding: 24px 0;
-        justify-content: space-between;
     }
 
-    .battleBoard span {
-        font-size: 16px;
-    }
-
-    .result {
-        order: 1;
-    }
-
-    .rules {
-        justify-content: center;
-        width: auto;
+    .rules_img {
+        width: 240px;
     }
 }
 
-@media (min-width: 280px) and (max-width: 520px) {
+@media (max-width: 420px) {
+
+    .rules_popup-screen {
+        top: 0;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+
+    .rules_popup-screen div {
+        align-content: center;
+        border-radius: 0;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 96px 12px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+
+    .rules_popup-screen div span {
+        font-size: 48px;
+        order: -1;
+    }
+
+    .rules_popup-screen div button {
+        order: 2;
+    }
+
+    .rules_popup-screen div button img{
+        height: 24px;
+        width: 24px;
+    }
+
+    .rules_img {
+        margin: auto;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .battleBoard {
+        height: 500px;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .battleBoard .border{
+        min-height: 0;
+        min-width: 0;
+    }
+
+    .battleBoard span {
+        font-size: 18px;
+    }
+
     .result {
         order: 1;
     }
 
+    .result span {
+        font-size: 48px;
+    }
 
     .box_one,
     .box_two {
+        height: 40%;
         flex-direction: column-reverse;
         width: 50%;
     }
 
     .rules {
+        height: auto;
         justify-content: center;
-        width: auto;
+        padding: 48px 24px 0 0;
+        margin: 0;
+    }
+
+    .rules_popup {
+        height: 100%;
+    }
+}
+
+@media (max-height: 500px) {
+
+    .rules_popup {
+        height: 100%;
+        width: 100%;;
+    }
+
+    .rules_popup-screen {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .rules_popup-screen div span {
+        width: 50vw;
+    }
+}
+
+@media (max-height: 280px) {
+    .rules_img {
+        height: 200px;
     }
 }

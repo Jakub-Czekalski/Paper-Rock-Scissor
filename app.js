@@ -58,9 +58,9 @@ GAME.addEventListener('click', (event) => {
 
 
     const HOUSEPICK = BATTLE.querySelector('.hause-picked');
-    const housePickScissors = BATTLE.querySelector('.scissors-battle');
-    const housePickRock = BATTLE.querySelector('.rock-battle');
-    const housePickPaper = BATTLE.querySelector('.paper-battle');
+    const housePickScissors = BATTLE.querySelector('.box_two .scissors-battle');
+    const housePickRock = BATTLE.querySelector('.box_two .rock-battle');
+    const housePickPaper = BATTLE.querySelector('.box_two .paper-battle');
 
     const myArray = [
         'rock',
