@@ -133,6 +133,19 @@ button {
     transform: translate(-50%, 50%);
 }
 
+/* Gameboard 2 */
+
+.gameBoard_2 {
+    aspect-ratio: 329/313;
+    background-image: url(/images/bg-pentagon.svg);
+    background-size: cover;
+    transform: translateY(50px);
+    width: 100%;
+    max-width: 313px;
+    min-width: 180px;
+    margin: 50px auto;
+}
+
 /* -----------battleboard------------ */
 
 .battleBoard {
