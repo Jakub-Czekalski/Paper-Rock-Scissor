@@ -22,66 +22,122 @@ init();
 
 // Choose option
 
-const GAME = document.querySelector('.gameBoard');
+const body = document.querySelector('body')
+const gameOne = document.querySelector('.gameBoard_one');
+const gameTwo = document.querySelector('.gameBoard_two')
 const BATTLE = document.querySelector('.battleBoard')
 
-GAME.addEventListener('click', (event) => {
+let gameType = body.dataset.gameType;
+
+const gameLogic = (event) => {
     if (!event.target.closest('button')) return
     const OPTION = event.target.closest('button')
     const {
         type
-    } = OPTION.dataset
+    } = OPTION.dataset;
 
     if (OPTION) {
-        GAME.classList.add('disactive');
+        if (gameType === 'one') {
+            gameOne.classList.add('disactive');
+        } else if (gameType === 'two') {
+            gameTwo.classList.add('disactive')
+        }
         BATTLE.classList.remove('disactive');
     }
 
-    const SCISSORS = BATTLE.querySelector('.scissors-battle');
-    const ROCK = BATTLE.querySelector('.rock-battle');
-    const PAPER = BATTLE.querySelector('.paper-battle');
+    const scissors = BATTLE.querySelector('.scissors-battle');
+    const rock = BATTLE.querySelector('.rock-battle');
+    const paper = BATTLE.querySelector('.paper-battle');
+    const lizard = BATTLE.querySelector('.lizard-battle');
+    const spock = BATTLE.querySelector('.spock-battle');
 
     if (type === 'scissors') {
-        SCISSORS.classList.remove('disactive');
+        scissors.classList.remove('disactive');
         BATTLE.dataset.yourPick = type;
     };
 
     if (type === 'rock') {
-        ROCK.classList.remove('disactive');
+        rock.classList.remove('disactive');
         BATTLE.dataset.yourPick = type;
     };
 
     if (type === 'paper') {
-        PAPER.classList.remove('disactive');
+        paper.classList.remove('disactive');
+        BATTLE.dataset.yourPick = type;
+    };
+
+    if (type === 'lizard') {
+        lizard.classList.remove('disactive');
+        BATTLE.dataset.yourPick = type;
+    };
+
+    if (type === 'spock') {
+        spock.classList.remove('disactive');
         BATTLE.dataset.yourPick = type;
     };
 
 
-    const HOUSEPICK = BATTLE.querySelector('.hause-picked');
-    const housePickScissors = BATTLE.querySelector('.box_two .scissors-battle');
-    const housePickRock = BATTLE.querySelector('.box_two .rock-battle');
-    const housePickPaper = BATTLE.querySelector('.box_two .paper-battle');
+    const hausePickScissors = BATTLE.querySelector('.box_two .scissors-battle');
+    const hausePickRock = BATTLE.querySelector('.box_two .rock-battle');
+    const hausePickPaper = BATTLE.querySelector('.box_two .paper-battle');
+    const hausePickLizard = BATTLE.querySelector('.box_two .lizard-battle');
+    const hausePickSpock = BATTLE.querySelector('.box_two .spock-battle')
 
-    const myArray = [
-        'rock',
-        'paper',
-        'scissors'
-    ];
+    if (gameType === 'one') {
+        const gameOneOptions = [
+            'rock',
+            'paper',
+            'scissors'
+        ];
 
-    let randomItem = myArray[Math.floor(Math.random() * myArray.length)];
+        let option = gameOneOptions[Math.floor(Math.random() * gameOneOptions.length)];
 
-    if (randomItem === 'rock') {
-        housePickRock.classList.remove('disactive');
-        BATTLE.dataset.hausePick = 'rock';
+        if (option === 'rock') {
+            hausePickRock.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'rock';
+        };
+        if (option === 'scissors') {
+            hausePickScissors.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'scissors';
+        };
+        if (option === 'paper') {
+            hausePickPaper.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'paper';
+        };
+    } else if (gameType === 'two'){
+        const gameTwoOptions = [
+            'rock',
+            'paper',
+            'scissors',
+            'lizard',
+            'spock'
+        ];
+
+        let optionTwo = gameTwoOptions[Math.floor(Math.random() * gameTwoOptions.length)];
+
+        if (optionTwo === 'rock') {
+            hausePickRock.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'rock';
+        };
+        if (optionTwo === 'scissors') {
+            hausePickScissors.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'scissors';
+        };
+        if (optionTwo === 'paper') {
+            hausePickPaper.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'paper';
+        };
+        if (optionTwo === 'lizard') {
+            hausePickLizard.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'lizard';
+        };
+        if (optionTwo === 'spock') {
+            hausePickSpock.classList.remove('disactive');
+            BATTLE.dataset.hausePick = 'spock';
+        };
     };
-    if (randomItem === 'scissors') {
-        housePickScissors.classList.remove('disactive');
-        BATTLE.dataset.hausePick = 'scissors';
-    };
-    if (randomItem === 'paper') {
-        housePickPaper.classList.remove('disactive');
-        BATTLE.dataset.hausePick = 'paper';
-    };
+
+
 
     const {
         yourPick
@@ -113,10 +169,10 @@ GAME.addEventListener('click', (event) => {
     const fight = () => {
         if (yourPick === 'rock') {
             showResult
-            if (hausePick === 'scissors') {
+            if (hausePick === 'scissors' || hausePick === 'lizard') {
                 win.classList.remove('disactive');
                 winner();
-            } else if (hausePick === 'paper') {
+            } else if (hausePick === 'paper' || hausePick === 'spock') {
                 lose.classList.remove('disactive');
                 loser();
             }
@@ -124,10 +180,10 @@ GAME.addEventListener('click', (event) => {
 
         if (yourPick === 'paper') {
             showResult
-            if (hausePick === 'rock') {
+            if (hausePick === 'rock' || hausePick === 'spock') {
                 win.classList.remove('disactive')
                 winner();
-            } else if (hausePick === 'scissors') {
+            } else if (hausePick === 'scissors' || hausePick === 'lizard') {
                 lose.classList.remove('disactive');
                 loser();
             }
@@ -135,10 +191,32 @@ GAME.addEventListener('click', (event) => {
 
         if (yourPick === 'scissors') {
             showResult
-            if (hausePick === 'rock') {
+            if (hausePick === 'paper' || hausePick === 'lizard') {
                 win.classList.remove('disactive')
                 winner();
-            } else if (hausePick === 'paper') {
+            } else if (hausePick === 'rock' || hausePick === 'spock') {
+                lose.classList.remove('disactive');
+                loser();
+            }
+        };
+
+        if (yourPick === 'lizard') {
+            showResult
+            if (hausePick === 'spock' || hausePick === 'paper') {
+                win.classList.remove('disactive')
+                winner();
+            } else if (hausePick === 'rock' || hausePick === 'scissors') {
+                lose.classList.remove('disactive');
+                loser();
+            }
+        };
+
+        if (yourPick === 'spock') {
+            showResult
+            if (hausePick === 'scissors' || hausePick === 'rock') {
+                win.classList.remove('disactive')
+                winner();
+            } else if (hausePick === 'lizard' || hausePick === 'paper') {
                 lose.classList.remove('disactive');
                 loser();
             }
@@ -165,12 +243,19 @@ GAME.addEventListener('click', (event) => {
             });
             BATTLE.classList.add('disactive');
             result.classList.add('disactive');
-            GAME.classList.remove('disactive');
+            if (gameType === 'one') {
+                gameOne.classList.remove('disactive');
+            } else if (gameType === 'two') {
+                gameTwo.classList.remove('disactive');
+            };
         });
     };
 
     restartGame();
-});
+};
+
+gameOne.addEventListener('click', gameLogic);
+gameTwo.addEventListener('click', gameLogic);
 
 // Rules Button
 const RULESBUTTON = document.querySelector('.rules button');
@@ -178,6 +263,9 @@ const RULESPOPUP = document.querySelector('.rules_popup');
 
 RULESBUTTON.addEventListener('click', () => {
     RULESPOPUP.classList.remove('disactive');
+    if (gameType === 'two') {
+        RULESPOPUP.querySelector('.rules_img').src = "/images/image-rules-bonus.svg";
+    }
 });
 
 

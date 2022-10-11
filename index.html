@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-game-type="one">
   <div class="main_container">
     <header>
       <h1>
@@ -30,7 +30,7 @@
       </div>
     </header>
 
-    <div class="gameBoard disactive">
+    <div class="gameBoard_one disactive">
       <div class="border scissors">
         <button class="options" data-type="scissors">
           <img src="/images/icon-scissors.svg" alt="scissors">
@@ -48,32 +48,33 @@
       </div>
     </div>
 
-    <div class="gameBoard_2">
-      <div class="border scissors">
+
+    <div class="gameBoard_two ">
+      <div class="border scissors-2 ">
         <button class="options" data-type="scissors">
           <img src="/images/icon-scissors.svg" alt="scissors">
         </button>
       </div>
-      <div class="border rock">
+      <div class="border rock-2 ">
         <button class="options" data-type="rock">
           <img src="/images/icon-rock.svg" alt="rock">
         </button>
       </div>
-      <div class="border paper">
+      <div class="border paper-2">
         <button class="options" data-type="paper">
           <img src="/images/icon-paper.svg" alt="paper">
         </button>
       </div>
-      <div class="border paper">
-        <button class="options" data-type="paper">
-          <img src="/images/icon-paper.svg" alt="paper">
+      <div class="border lizard">
+        <button class="options" data-type="lizard">
+          <img src="/images/icon-lizard.svg" alt="lizard">
         </button>
       </div>
-      <div class="border paper">
-        <button class="options" data-type="paper">
-          <img src="/images/icon-paper.svg" alt="paper">
+      <div class="border spock">
+        <button class="options" data-type="spock">
+          <img src="/images/icon-spock.svg" alt="spock">
         </button>
-      </div>            
+      </div>
     </div>
 
     <div class="battleBoard disactive">
@@ -93,7 +94,14 @@
           <div class="options">
             <img src="/images/icon-rock.svg" alt="rock"></div>
         </div>
-
+        <div class="border lizard-battle disactive" data-type="lizard">
+          <div class="options">
+            <img src="/images/icon-lizard.svg" alt="lizard"></div>
+        </div>
+        <div class="border spock-battle disactive" data-type="spock">
+          <div class="options">
+            <img src="/images/icon-spock.svg" alt="spock"></div>
+        </div>
       </div>
 
       <div class="result disactive">
@@ -118,6 +126,14 @@
           <div class="options">
             <img src="/images/icon-paper.svg" alt="paper"></div>
         </div>
+        <div class="border lizard-battle disactive">
+          <div class="options">
+            <img src="/images/icon-lizard.svg" alt="lizard"></div>
+        </div>
+        <div class="border spock-battle disactive">
+          <div class="options">
+            <img src="/images/icon-spock.svg" alt="spock"></div>
+        </div>
 
       </div>
     </div>
@@ -128,6 +144,10 @@
     <button>
       RULES
     </button>
+  </div>
+
+  <div class="gameType">
+    <button>SPOCK</button>
   </div>
 
   <div class="rules_popup disactive">

@@ -19,6 +19,7 @@ body {
     width: 100vw;
     min-width: 280px;
     padding: 24px 12px;
+
 }
 
 body .main_container {
@@ -67,7 +68,7 @@ h1 span {
 
 /* game-board */
 
-.gameBoard {
+.gameBoard_one {
     aspect-ratio: 313/278;
     background-image: url(/images/bg-triangle.svg);
     background-size: cover;
@@ -135,15 +136,62 @@ button {
 
 /* Gameboard 2 */
 
-.gameBoard_2 {
+.gameBoard_two {
     aspect-ratio: 329/313;
     background-image: url(/images/bg-pentagon.svg);
     background-size: cover;
     transform: translateY(50px);
-    width: 100%;
-    max-width: 313px;
-    min-width: 180px;
+    width: 60%;
+    max-width: 329px;
+    min-width: 160px;
     margin: 50px auto;
+}
+
+
+.paper-2 {
+    background: radial-gradient(at bottom, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: 1px 5px 0px 1px hsl(229, 94%, 59%);
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+}
+
+.scissors-2 {
+    background: radial-gradient(at bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 1px 5px 0px 1px hsl(39, 77%, 42%);
+    right: 0;
+    top: 0;
+    transform: translate(50%, 25%);
+}
+
+.rock-2 {
+    background: radial-gradient(at bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 1px 5px 0px 1px hsl(349, 78%, 47%);
+    bottom: 0;
+    right: 0;
+    transform: translate(25%, 50%);
+}
+
+.lizard {
+    background: radial-gradient(at bottom, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: 1px 5px 0px 1px hsl(262, 54%, 26%);
+    left: 0px;
+    bottom: 0px;
+    transform: translate(-25%, 50%);
+
+}
+
+.spock {
+    background: radial-gradient(at bottom, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: 1px 5px 0px 1px hsl(189, 67%, 32%);
+    left: 0;
+    top: 0;
+    transform: translate(-50%, 25%);
+}
+
+.spock img,
+.spock-battle img {
+    transform: translateX(10%);
 }
 
 /* -----------battleboard------------ */
@@ -238,11 +286,19 @@ button {
     box-shadow: 1px 5px 0px 1px hsl(349, 78%, 47%);
 }
 
+.lizard-battle {
+    background: radial-gradient(at bottom, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: 1px 5px 0px 1px hsl(262, 54%, 26%);
+}
 
+.spock-battle {
+    background: radial-gradient(at bottom, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: 1px 5px 0px 1px hsl(189, 67%, 32%);
+}
 
 /* rules */
 
-.rules {
+.rules , .gameType{
     align-items: flex-end;
     display: flex;
     justify-content: flex-end;
@@ -254,7 +310,7 @@ button {
     padding: 0 48px;
 }
 
-.rules button {
+.rules button, .gameType button {
     background-color: transparent;
     border-radius: 5px;
     border: 2px solid var(--header-outline);
@@ -266,7 +322,7 @@ button {
 
 .rules_popup {
     background: no-repeat;
-    background-color: rgba(0, 0, 0, 0.4) ;
+    background-color: rgba(0, 0, 0, 0.4);
     height: 100%;
     top: 0;
     left: 0;
@@ -355,7 +411,7 @@ button {
         order: 2;
     }
 
-    .rules_popup-screen div button img{
+    .rules_popup-screen div button img {
         height: 24px;
         width: 24px;
     }
@@ -373,7 +429,7 @@ button {
         justify-content: center;
     }
 
-    .battleBoard .border{
+    .battleBoard .border {
         min-height: 0;
         min-width: 0;
     }
@@ -413,7 +469,8 @@ button {
 
     .rules_popup {
         height: 100%;
-        width: 100%;;
+        width: 100%;
+        ;
     }
 
     .rules_popup-screen {
