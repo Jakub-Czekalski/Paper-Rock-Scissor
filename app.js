@@ -104,7 +104,7 @@ const gameLogic = (event) => {
             hausePickPaper.classList.remove('disactive');
             BATTLE.dataset.hausePick = 'paper';
         };
-    } else if (gameType === 'two'){
+    } else if (gameType === 'two') {
         const gameTwoOptions = [
             'rock',
             'paper',
@@ -278,3 +278,42 @@ RULESPOPUP.addEventListener('click', (event) => {
         RULESPOPUP.classList.add('disactive')
     }
 });
+
+const changeGameButton = document.querySelector('.gameType button');
+
+const changeGameType = () => {
+    const title = document.querySelector('h1');
+
+    if (body.dataset = 'one') {
+        const spanElementOne = document.createElement('span');
+        const textElementOne = document.createTextNode('LIZARD');
+        spanElementOne.appendChild(textElementOne);
+
+        const spanElementTwo = document.createElement('span');
+        const textElementTwo = document.createTextNode('SPOCK');
+        spanElementTwo.appendChild(textElementTwo);
+
+        title.appendChild(spanElementOne);
+        title.appendChild(spanElementTwo);
+
+        body.dataset.gameType = 'two';
+        document.querySelector('.score-box').style.padding = '24px 36px';
+    } else if (body.dataset = 'two') {
+        const spanElementOne = document.createElement('span');
+        const textElementOne = document.createTextNode('LIZARD');
+        spanElementOne.appendChild(textElementOne);
+
+        const spanElementTwo = document.createElement('span');
+        const textElementTwo = document.createTextNode('SPOCK');
+        spanElementTwo.appendChild(textElementTwo);
+
+        title.appendChild(spanElementOne);
+        title.appendChild(spanElementTwo);
+
+        body.dataset.gameType = 'two';
+        document.querySelector('.score-box').style.padding = '24px 36px';
+    }
+
+}
+
+changeGameButton.addEventListener('click', changeGameType)
